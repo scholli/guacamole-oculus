@@ -1,0 +1,52 @@
+SET(OVR_INCLUDE_SEARCH_DIR
+    /opt/OculusSDK/LibOVR/Include
+)
+
+SET(OVR_LIBRARY_SEARCH_DIR
+    /opt/OculusSDK/LibOVR/Lib/Linux/Release/x86_64
+)
+
+MESSAGE("-- checking for GUACAMOLE")
+
+IF (NOT OVR_INCLUDE_DIRS)
+
+    FIND_PATH(_CUR_SEARCH
+        NAMES OVR.h
+        PATHS ${OVR_INCLUDE_SEARCH_DIR}
+        NO_DEFAULT_PATH)
+
+
+    IF (_CUR_SEARCH)
+        GET_FILENAME_COMPONENT(_INC ${OVR_INCLUDE_SEARCH_DIR} ABSOLUTE)
+        SET(OVR_INCLUDE_DIR ${_INC} CACHE FILEPATH "The include directory of OVR")
+        LIST(APPEND OVR_INCLUDE_DIRS ${_INC})
+    ELSE (_CUR_SEARCH)
+        MESSAGE(FATAL_ERROR "find_ovr.cmake: unable to find OVR headers")
+    ENDIF(_CUR_SEARCH)
+
+    SET(_CUR_SEARCH _CUR_SEARCH-NOTFOUND CACHE INTERNAL "internal use")
+
+ENDIF(NOT OVR_INCLUDE_DIRS)
+
+IF (        OVR_INCLUDE_DIRS
+    AND NOT OVR_LIBRARIES)
+
+    FIND_PATH(_CUR_SEARCH
+        NAMES libovr.a
+        PATHS ${OVR_LIBRARY_SEARCH_DIR}
+        NO_DEFAULT_PATH)
+
+
+    IF (_CUR_SEARCH)
+        MESSAGE("--  found matching version")
+        GET_FILENAME_COMPONENT(_LIB ${OVR_LIBRARY_SEARCH_DIR}/libovr.a ABSOLUTE)
+        SET(OVR_LIBRARY ${_LIB} CACHE FILEPATH "The library of OVR")
+        LIST(APPEND OVR_LIBRARIES ${_LIB})
+    ELSE (_CUR_SEARCH)
+        MESSAGE(FATAL_ERROR "find_ovr.cmake: unable to find OVR library")
+    ENDIF(_CUR_SEARCH)
+
+    SET(_CUR_SEARCH _CUR_SEARCH-NOTFOUND CACHE INTERNAL "internal use")
+
+ENDIF(        OVR_INCLUDE_DIRS
+      AND NOT OVR_LIBRARIES)
