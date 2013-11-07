@@ -145,8 +145,8 @@ void OculusRift::create_shader() {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void OculusRift::display(std::shared_ptr<Texture> const& left_texture,
-                         std::shared_ptr<Texture> const& right_texture) {
+void OculusRift::display(std::shared_ptr<Texture2D> const& left_texture,
+                         std::shared_ptr<Texture2D> const& right_texture) {
 
   display(left_texture, config.get_left_resolution(), config.get_left_position(), true);
   display(right_texture, config.get_right_resolution(), config.get_right_position(), false);
@@ -170,7 +170,7 @@ math::mat4 const OculusRift::get_transform() const {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void OculusRift::display(std::shared_ptr<Texture> const& texture,
+void OculusRift::display(std::shared_ptr<Texture2D> const& texture,
                      math::vec2ui const& size,
                      math::vec2ui const& position,
                      bool left) {

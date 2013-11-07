@@ -45,13 +45,13 @@ class OculusRift: public Window {
   void create_shader();
 
   // virtual
-  void display(std::shared_ptr<Texture> const& left_texture,
-               std::shared_ptr<Texture> const& right_texture);
+  void display(std::shared_ptr<Texture2D> const& left_texture,
+               std::shared_ptr<Texture2D> const& right_texture);
 
   math::mat4 const get_transform() const;
 
   private:
-    void display(std::shared_ptr<Texture> const& texture,
+    void display(std::shared_ptr<Texture2D> const& texture,
                  math::vec2ui const& size,
                  math::vec2ui const& position,
                  bool left);
