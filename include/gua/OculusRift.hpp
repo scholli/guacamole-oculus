@@ -22,6 +22,16 @@
 #ifndef GUA_OCULUS_RIFT_HPP
 #define GUA_OCULUS_RIFT_HPP
 
+#if defined (_MSC_VER)
+  #if defined (GUA_OCULUS_LIBRARY)
+    #define GUA_OCULUS_DLL __declspec( dllexport )
+  #else
+#define GUA_OCULUS_DLL __declspec( dllimport )
+  #endif
+#else
+  #define GUA_OCULUS_DLL
+#endif // #if defined(_MSC_VER)
+
 // guacamole headers
 #include <gua/renderer/Window.hpp>
 
@@ -34,7 +44,7 @@ namespace OVR {
 
 namespace gua {
 
-class OculusRift: public Window {
+class GUA_OCULUS_DLL OculusRift : public Window {
  public:
 
   static void init();
