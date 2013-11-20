@@ -47,7 +47,7 @@ set(LIBS
     ${GLEW_LIBRARIES}
     ${EV_LIBRARIES}
     ${BULLET_LIBRARIES}
-    ${GUA_LIBRARIES}
+    ${GUACAMOLE_LIBRARIES}
     ${OVR_LIBRARIES}
     udev
     Xinerama
@@ -59,6 +59,7 @@ set(LIB_PATHS
     ${JSON_LIBRARY_DIRS}
     ${GL_LIBRARY_DIRS}
     ${GLEW_LIBRARY_DIRS}
+    ${GUACAMOLE_LIBRARY_DIRS}
 )
 link_directories(${LIB_PATHS})
 
@@ -73,7 +74,7 @@ set(INCLUDE_PATHS
     ${GLEW_INCLUDE_DIRS}
     ${EV_INCLUDE_DIRS}
     ${BULLET_INCLUDE_DIRS}
-    ${GUA_INCLUDE_DIRS}
+    ${GUACAMOLE_INCLUDE_DIRS}
     ${OVR_INCLUDE_DIRS}
 )
 include_directories(${INCLUDE_PATHS})
@@ -103,43 +104,44 @@ add_subdirectory(example)
 # Summary
 ################################################################
 
-message( "" )
-message( "Summary:" )
-message( " build type: ${CMAKE_BUILD_TYPE}" )
-message( "" )
-message( " schism:" )
-message( "   library: ${SCHISM_LIBRARIES}" )
-message( "   include: ${SCHISM_INCLUDE_DIRS}" )
-message( "" )
-message( " boost:" )
-message( "   library: ${BOOST_LIBRARIES}" )
-message( "   include: ${BOOST_INCLUDE_DIRS}" )
-message( "" )
-message( " assimp:" )
-message( "   library: ${ASSIMP_LIBRARIES}" )
-message( "   include: ${ASSIMP_INCLUDE_DIRS}" )
-message( "" )
-message( " gl:" )
-message( "   library: ${GL_LIBRARIES}" )
-message( "   include: ${GL_INCLUDE_DIRS}" )
-message( "" )
-message( " glew:" )
-message( "   library: ${GLEW_LIBRARIES}" )
-message( "   include: ${GLEW_INCLUDE_DIRS}" )
-message( "" )
-message( " ev:" )
-message( "   library: ${EV_LIBRARIES}" )
-message( "   include: ${EV_INCLUDE_DIRS}" )
-message( "" )
-message( " bullet:" )
-message( "   library: ${BULLET_LIBRARIES}" )
-message( "   include: ${BULLET_INCLUDE_DIRS}" )
-message( "" )
-message( " guacamole:" )
-message( "   library: ${GUA_LIBRARIES}" )
-message( "   include: ${GUA_INCLUDE_DIRS}" )
-message( "" )
-message( " ovr:" )
-message( "   library: ${OVR_LIBRARIES}" )
-message( "   include: ${OVR_INCLUDE_DIRS}" )
-message( "" )
+message(STATUS "" )
+message(STATUS "Summary:" )
+message(STATUS " build type: ${CMAKE_BUILD_TYPE}" )
+message(STATUS "" )
+message(STATUS " schism:" )
+message(STATUS "   library: ${SCHISM_LIBRARIES}" )
+message(STATUS "   include: ${SCHISM_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " boost:" )
+message(STATUS "   library: ${BOOST_LIBRARIES}" )
+message(STATUS "   include: ${BOOST_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " assimp:" )
+message(STATUS "   library: ${ASSIMP_LIBRARIES}" )
+message(STATUS "   include: ${ASSIMP_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " gl:" )
+message(STATUS "   library: ${GL_LIBRARIES}" )
+message(STATUS "   include: ${GL_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " glew:" )
+message(STATUS "   library: ${GLEW_LIBRARIES}" )
+message(STATUS "   include: ${GLEW_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " ev:" )
+message(STATUS "   library: ${EV_LIBRARIES}" )
+message(STATUS "   include: ${EV_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " bullet:" )
+message(STATUS "   library: ${BULLET_LIBRARIES}" )
+message(STATUS "   include: ${BULLET_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " ovr:" )
+message(STATUS "   library: ${OVR_LIBRARIES}" )
+message(STATUS "   include: ${OVR_INCLUDE_DIRS}" )
+message(STATUS "" )
+message(STATUS " guacamole:" )
+message(STATUS "   library: ${GUACAMOLE_LIBRARIES}" )
+message(STATUS "   library path: ${GUACAMOLE_LIBRARY_DIRS}" )
+message(STATUS "   include: ${GUACAMOLE_INCLUDE_DIRS}" )
+message(STATUS "" )
